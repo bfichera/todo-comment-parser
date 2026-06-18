@@ -48,17 +48,17 @@ class Parser:
                 if i in todo_idxs:
                     state = 'todoline'
             if state == 'todoline':
-                todo_par += line
+                todo_par += line + '\n'
                 state = 'reading'
                 continue
             if state == 'reading':
                 if i in todo_idxs:
                     todo_pars.append(todo_par)
-                    todo_par = line
+                    todo_par = line + '\n'
                     state = 'reading'
                     continue
                 if line.strip().startswith(comment_str.strip()):
-                    todo_par += line
+                    todo_par += line + '\n'
                 else:
                     todo_pars.append(todo_par)
                     todo_par = ''

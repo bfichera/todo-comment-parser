@@ -31,5 +31,6 @@ def main():
                     continue
             parser = Parser.from_file(nondir, tag)
             if parser is not None:
-                print(nondir.relative_to(root))
-                parser.print()
+                if parser.todo_pars:
+                    print(nondir.relative_to(root))
+                    parser.print()
