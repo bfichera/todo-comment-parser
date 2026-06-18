@@ -38,7 +38,7 @@ class Parser:
         if not comment_strs:
             return []
         if not all([c == comment_strs[0] for c in comment_strs]):
-            raise ValueError('File contains multiple types of comments')
+            ValueError('File contains multiple types of comments')
         comment_str = comment_strs[0]
         todo_pars = []
         state = 'skipping'

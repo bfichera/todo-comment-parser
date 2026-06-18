@@ -1,8 +1,13 @@
 import argparse
 from pathlib import Path
 from fnmatch import fnmatch
+from warnings import warn
 
 from .parser import Parser
+
+
+def rgb(text, r, g, b):
+    return f"\033[38;2;{r};{g};{b}m{text}\033[0m"
 
 
 def main():
@@ -31,6 +36,9 @@ def main():
                     continue
             parser = Parser.from_file(nondir, tag)
             if parser is not None:
-                if parser.todo_pars:
-                    print(nondir.relative_to(root))
-                    parser.print()
+                try:
+                    if parser.todo_pars:
+                        print(rgb(nondir.relative_to(root), 255, 0, 0))
+                        parser.print()
+                except ValueError as e:
+                    warn(e)
