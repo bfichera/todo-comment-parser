@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "todo-comment-parser"
+version = "0.1.0"
+dependencies = []
+
+[project.scripts]
+parsetodo = "todo_comment_parser.cli:main"
+
+[tool.setuptools]
+packages = ["todo_comment_parser"]
