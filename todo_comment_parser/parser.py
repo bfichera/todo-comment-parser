@@ -71,6 +71,6 @@ class Parser:
 
     def print(self):
         for todo_par in self.todo_pars:
-            print(todo_par)
-            print('----------')
+            print(todo_par[:-1])
+            print('-' * 80)
         return len(self.todo_pars)
