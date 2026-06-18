@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--tag', type=str, default='TODO')
     parser.add_argument('--depth', type=int, default=None)
     parser.add_argument('--include', type=str, default=None)
-    parser.add_argument('directory', type=Path)
+    parser.add_argument('directory', nargs='?', type=Path, default=Path.cwd())
     cfg = parser.parse_args()
 
     root = cfg.directory
