@@ -32,7 +32,7 @@ def main():
                 continue
         for nondir in [top / nd for nd in nondirs]:
             if include is not None:
-                if not fnmatch(nondir.name, include):
+                if not fnmatch(nondir.relative_to(root).as_posix(), include):
                     continue
             parser = Parser.from_file(nondir, tag)
             if parser is not None:
